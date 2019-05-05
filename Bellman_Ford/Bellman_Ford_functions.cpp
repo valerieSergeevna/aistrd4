@@ -60,7 +60,7 @@ int **create_graph_matrix(map<string> city)
 	return matrix;
 }
 
-string find_way(int **graph_table, size_t size, int from , int to,int *min)
+string find_way(int **graph_table, size_t size, int from , int to,int &min)
 {
 	int inf = 2000000;
 	int *path = new int[size];
@@ -82,6 +82,7 @@ string find_way(int **graph_table, size_t size, int from , int to,int *min)
 //	*length = path[to];
 
 	cout << "min path " << path[to] << '\n';
+	min = path[to];
 	string way;
 	way += ways[from];
 	way += ways[to];

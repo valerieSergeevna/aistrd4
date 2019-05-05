@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "CppUnitTest.h"
-#include "../Bellman_Ford/Bellman_Ford_functions.h"
+#include "../Bellman_Ford/Bellman_Ford_functions.cpp"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -17,8 +17,11 @@ namespace UnitTest_for_BF
 			int **check = new int*[4];
 			for (int i = 0; i <4; i++)
 				check[i] = new int[4];
+			for (int i = 0; i < 4; i++)
+				for (int j = 0; j < 4; j++)
+					check[i][j] = matrix[i][j];
 			int min;
-		 find_way(check, 4, 2, 0, &min);
+		 find_way(check, 4, 2, 0, min);
 		 Assert::AreEqual(min, 55);
 		}
 
@@ -29,8 +32,11 @@ namespace UnitTest_for_BF
 			int **check = new int*[4];
 			for (int i = 0; i < 4; i++)
 				check[i] = new int[4];
+			for (int i = 0; i < 4; i++)
+				for (int j = 0; j < 4; j++)
+					check[i][j] = matrix[i][j];
 			int min;
-			find_way(check, 4, 1, 3, &min);
+			find_way(check, 4, 1, 3, min);
 			Assert::AreEqual(min, 40);
 		}
 
@@ -42,7 +48,10 @@ namespace UnitTest_for_BF
 			for (int i = 0; i < 4; i++)
 				check[i] = new int[4];
 			int min;
-			find_way(check, 4, 0, 3, &min);
+			for (int i = 0; i < 4; i++)
+				for (int j = 0; j < 4; j++)
+					check[i][j] = matrix[i][j];
+			find_way(check, 4, 0, 3, min);
 			Assert::AreEqual(min, 20);
 		}
 	};
