@@ -1,6 +1,7 @@
 ﻿#pragma once
-#include <iostream>
 #include "Iterator.h"
+#include <iostream>
+
 
 
 using namespace std;

@@ -1,6 +1,7 @@
 #include "Bellman_Ford_functions.h"
 #include <fstream>
 
+
 void read_file(map<string>*city)
 {
 	fstream fin;
@@ -59,7 +60,7 @@ int **create_graph_matrix(map<string> city)
 	return matrix;
 }
 
-string find_way(int **graph_table, size_t size, int from , int to)
+string find_way(int **graph_table, size_t size, int from , int to,int *min)
 {
 	int inf = 2000000;
 	int *path = new int[size];
@@ -88,13 +89,15 @@ string find_way(int **graph_table, size_t size, int from , int to)
 	return way;
 }
 
-void create_path(string path, size_t length, map<string> city)
+void create_path(string path,  map<string> city)
 {
-	while (1)
+	size_t found = path.find('_');
+	path.erase(0,found+1);
+	while (true)
 	{
-		size_t found = path.find('_');
-		if (path[found+1]!='\0')
-		cout << city.find_city(stoi(path.substr(0, found))) << " -> ";
+		found = path.find('_');
+		if (path.length()!=1)
+			cout << city.find_city(stoi(path.substr(0, found))) << " -> ";
 		else
 		{
 			cout << city.find_city(stoi(path.substr(0, found)));
