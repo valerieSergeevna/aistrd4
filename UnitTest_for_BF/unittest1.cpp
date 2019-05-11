@@ -54,5 +54,35 @@ namespace UnitTest_for_BF
 			find_way(check, 4, 0, 3, min);
 			Assert::AreEqual(min, 20);
 		}
+
+		TEST_METHOD(min_path_test_4)
+		{
+
+			int matrix[5][5] = { {-1,20,-1,-1,-1},{10,-1,35,-1,-1},{14,20,-1,-1} ,{-1,-1,-1,-1,10},{20,-1,-1,13,-1} };
+			int **check = new int*[5];
+			for (int i = 0; i < 5; i++)
+				check[i] = new int[5];
+			for (int i = 0; i < 5; i++)
+				for (int j = 0; j < 5; j++)
+					check[i][j] = matrix[i][j];
+			int min;
+			find_way(check, 5, 2, 4, min);
+			Assert::AreEqual(min, 75);
+		}
+
+		TEST_METHOD(min_path_test_5)
+		{
+
+			int matrix[5][5] = { {-1,20,-1,-1,-1},{10,-1,35,-1,-1},{14,20,-1,-1} ,{-1,-1,-1,-1,10},{20,-1,-1,13,-1} };
+			int **check = new int*[5];
+			for (int i = 0; i < 5; i++)
+				check[i] = new int[5];
+			for (int i = 0; i < 5; i++)
+				for (int j = 0; j < 5; j++)
+					check[i][j] = matrix[i][j];
+			int min;
+			find_way(check, 5, 0, 3, min);
+			Assert::AreEqual(min, 30);
+		}
 	};
 }

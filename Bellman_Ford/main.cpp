@@ -17,6 +17,6 @@ void main()
 	cout << '\n';
 
 	int min;
-	create_path(find_way(create_graph_matrix(city), city.get_size(), 0, 3,min), city);
+	create_path(find_way(create_graph_matrix(city), city.get_size(), 1, 3,min), city);
 
 }

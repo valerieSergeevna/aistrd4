@@ -67,7 +67,7 @@ string find_way(int **graph_table, size_t size, int from , int to,int &min)
 	string* ways = new string[size];
 	for (int i = 0; i < size; i++)
 	{
-		path[i] = 2000000;
+		path[i] = 2000000;//INT_MAX
 		//ways[i] = nullptr;
 	}
 	path[from] = 0;
